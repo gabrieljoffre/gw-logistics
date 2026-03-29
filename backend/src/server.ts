@@ -17,7 +17,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 // Configuração do GLPI Original
 const GLPI_CONFIG = {
@@ -31,7 +31,7 @@ const GLPI_CONFIG = {
 // Conexão com Supabase PostgreSQL
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false }
+    ssl: process.env.DATABASE_URL?.includes('supabase') ? { rejectUnauthorized: false } : false
 });
 
 async function initDB() {
