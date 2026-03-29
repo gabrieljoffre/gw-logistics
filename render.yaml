@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: gw-logistics
+    env: node
+    rootDir: backend
+    buildCommand: npm install && npm run build && cd ../frontend && npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
