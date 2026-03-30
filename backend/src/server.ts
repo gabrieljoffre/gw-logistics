@@ -19,13 +19,13 @@ app.use(express.json());
 
 const PORT = Number(process.env.PORT) || 3001;
 
-// Configuração do GLPI Original
+// Configuração do GLPI via Variáveis de Ambiente
 const GLPI_CONFIG = {
-    host: '172.21.10.23',
-    port: 3306,
-    user: 'gabrieljoffre',
-    password: 'Log@2026!',
-    database: 'glpidb'
+    host: process.env.GLPI_HOST || '172.21.10.23',
+    port: Number(process.env.GLPI_PORT) || 3306,
+    user: process.env.GLPI_USER,
+    password: process.env.GLPI_PASSWORD,
+    database: process.env.GLPI_DATABASE || 'glpidb'
 };
 
 // Conexão com Supabase PostgreSQL

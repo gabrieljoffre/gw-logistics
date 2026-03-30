@@ -8,5 +8,15 @@ services:
     envVars:
       - key: DATABASE_URL
         sync: false
+      - key: GLPI_HOST
+        sync: false
+      - key: GLPI_PORT
+        value: 3306
+      - key: GLPI_USER
+        sync: false
+      - key: GLPI_PASSWORD
+        sync: false
+      - key: GLPI_DATABASE
+        value: glpidb
       - key: NODE_ENV
         value: production
